@@ -1,0 +1,36 @@
+<!--
+    Navigation bar: Responsive
+    Link to Home component
+    Link to Statistics Component
+-->
+<nav class="navbar navbar-fixed-top navbar-expand-md bg-dark navbar-dark">
+    
+        <a class="navbar-brand text-white" href="#">URL Shortener</a>
+        <button
+         class="navbar-toggler" 
+         type="button" 
+         (click)="toggleNavbar = !toggleNavbar" 
+         data-toggle="collapse" 
+         data-target="#navbarContent" 
+         aria-controls="navbarContent" 
+         aria-expanded="false" 
+         aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div 
+        class="collapse navbar-collapse" 
+        id="navbarContent" 
+        [ngbCollapse]="toggleNavbar">
+        <ul 
+        class="nav navbar-nav mr-auto" 
+        routerLinkActive="active" >
+            <li class="nav-item">
+                <a class="nav-link" href="/index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/stats">Statistics</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+  

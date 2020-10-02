@@ -1,0 +1,66 @@
+<!--
+  Form to get the statistics of the custom url entered
+-->
+<div class="form-group background" >
+    <form #statisticsForm="ngForm" >
+        <input [(ngModel)]="urlShort" name="url_short" type="text" class="search" placeholder="Enter the Custom/Short URL" required/> 
+      
+      <button type="submit" class="btn btn-success search-btn"
+        (click)="onSubmit()" [disabled]="!statisticsForm.form.valid">Show!</button>
+    </form>
+</div>
+
+<!--
+  Displays the Total no of views of the custom URL
+  Displays the IP address of people who viewed the URL, Date of View
+  Displays if the custom URL entered is present in the database or not
+  Displays Bar Chart for num of views per month of the respective custom URL
+-->
+  <div class="container" >
+    <br/>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            
+            <div class="card-text">
+                                 Short URL: <a>{{urlView.hash}}</a> <br/>
+                                 Number of total views: {{ urlView.clicks }} <br/>
+                                 Result: {{ urlView.result }} <br/>
+                                 <table *ngIf = 'urlView.urlStatObj.length > 0'>
+                                    <tr>
+                                      <th>Viewer IP</th><th>View Date</th>
+                                    </tr>
+                                    <tr *ngFor ='let view of urlView.urlStatObj'>
+                                      <td>{{view.viewer_ip}}</td>
+                                      <td>{{view.view_day}}/{{view.view_month}}/{{view.view_year}}</td>
+                                    </tr>
+                                 </table>
+                           
+            </div>          
+          </div>
+        </div>
+        <br/>
+      </div> 
+    </div>
+    </div>
+    <!--
+      Display the Bar Chart
+    -->
+    <div class="container" *ngIf = 'urlView.urlStatObj.length > 0'>
+      <div class="col-sm-12 col-md-10 col-lg-8 text-center" style="width:100%;height:100%;">
+        <h2 class="text-center">Views per month:</h2>
+          <canvas
+          baseChart 
+          [data]="click_per_month"
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [colors]="barChartColors"
+          [chartType]="barChartType" > 
+         </canvas>
+      </div>
+    </div>
+
