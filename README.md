@@ -24,36 +24,7 @@ Use Case:
 ### Schema for stats table:
 `create table stats(stat_id int auto_increment, url_id int,click_date datetime,url_ip varchar(16),url_short varchar(100),primary key(stat_id),constraint fk_url_id foreign key(url_id) references urls(url_id) on delete cascade);`
 
-mysql> show tables;
-+-------------------------+
-| Tables_in_url_shortener |
-+-------------------------+
-| stats                   |
-| urls                    |
-+-------------------------+
-
-mysql> desc urls;
-+------------------+---------------+------+-----+---------+----------------+
-| Field            | Type          | Null | Key | Default | Extra          |
-+------------------+---------------+------+-----+---------+----------------+
-| url_id           | int(11)       | NO   | PRI | NULL    | auto_increment |
-| url_original     | varchar(5000) | NO   |     | NULL    |                |
-| url_short        | varchar(100)  | YES  |     | NULL    |                |
-| url_datetime     | datetime      | YES  |     | NULL    |                |
-| url_ip           | varchar(16)   | YES  |     | NULL    |                |
-| url_num_of_views | int(11)       | YES  |     | NULL    |                |
-+------------------+---------------+------+-----+---------+----------------+
-
-mysql> desc stats;
-+------------+--------------+------+-----+---------+----------------+
-| Field      | Type         | Null | Key | Default | Extra          |
-+------------+--------------+------+-----+---------+----------------+
-| stat_id    | int(11)      | NO   | PRI | NULL    | auto_increment |
-| url_id     | int(11)      | YES  | MUL | NULL    |                |
-| click_date | datetime     | YES  |     | NULL    |                |
-| url_ip     | varchar(16)  | YES  |     | NULL    |                |
-| url_short  | varchar(100) | YES  |     | NULL    |                |
-+------------+--------------+------+-----+---------+----------------+
+The schema of the database and tables is present is `schema.txt` in `app-server` folder or check here https://github.com/divya661/url-shortener/blob/master/app-server/schema.txt
 
 After running on my localhost results were obtained by me are concluded in the following below images:
 Main site
