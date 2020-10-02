@@ -19,7 +19,7 @@ Description: Project is build using Angular, Node.js, Express.js, MySQL
 ## (C) Run command to start the backend server: For node.js( runs on port no 3000)
 1. `cd app-server`
 2. `npm install`
-3. Create database `url_shortener` using `Create database url_shortener`
+3. Create database `url_shortener` using `Create database url_shortener;`
 4. Change the `password` in `db_config.js` file to password of your database in `app-server` folder
 5. Create the tables `urls` and `stats` in your database by running the below given DDL commands
 6. `npm start`
